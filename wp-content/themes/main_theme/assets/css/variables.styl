@@ -1,0 +1,62 @@
+// 1. Colors
+$primary_color = #6E00E3
+$secondary_color = #8B33E9
+$terciary_color = #B680F1
+$cuaternary_color = #E2CCF9
+$green = #45FFC1;
+$white = #FFFFFF
+$black = #000000
+$gray = #626262
+$gray_light = #8E8E8E
+$gray_superlight = #F6F6F6
+
+// 2. Height for header sticky and mobile menu popup
+$nav_height = 100px
+$slide_logos_height = 154px
+$height_banner = $nav_height + $slide_logos_height
+
+// 5. For root
+:root
+    --nav-height $nav_height
+    --slide-logo-height $slide_logos_height
+    --height-out-banner $height_banner
+html
+    scroll-behavior smooth
+// 6. Scrollbar Style
+body
+    &::-webkit-scrollbar 
+        width 10px
+        border-radius 12px
+    &::-webkit-scrollbar-thumb 
+        background-color $primary_color
+        border-radius 12px
+        border 2px solid $white
+    &::-moz-scrollbar
+        width 10px
+        border-radius 12px
+    &::-moz-scrollbar-thumb 
+        background-color $primary_color
+        border-radius 12px
+        border 2px solid $white
+    &.no-scroll
+        overflow hidden
+        width 100%
+        height 100%
+    &.admin-bar
+        .section__header 
+            top 32px /* Standart Height for bar admin WordPress */
+        .bar__top
+            top calc(var(--nav-height) + 32px)
+@media screen and (max-width: 1366px)
+    $slide_logos_height_laptop = 120px
+    :root
+        --slide-logo-height $slide_logos_height_laptop
+@media screen and (max-width: 768px)
+    $nav_height_mobile = 90px
+    :root
+        --height-out-banner $height_banner_mobile
+
+@media screen and (max-width: 640px)
+    $slide_logos_height_super_mobile = 90px
+    :root
+        --slide-logo-height $slide_logos_height_super_mobile

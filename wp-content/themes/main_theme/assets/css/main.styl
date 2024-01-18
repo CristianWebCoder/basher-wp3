@@ -1,0 +1,1473 @@
+@import "variables"
+@import "globals"
+@import "components"
+@import "header"
+@import "footer"
+.pp-section
+    height calc(100% - var(--nav-height)) !important
+.pp-scrollable
+    overflow-y auto !important
+#pp-nav li .active span, .pp-slidesNav .active span
+    background $primary_color !important
+#pp-nav span
+    border 1px solid $primary_color !important
+.loader
+    position fixed
+    height 100vh
+    width 100%
+    z-index 10000
+    display flex
+    justify-content center
+    align-items center
+    overflow hidden
+    opacity 1
+    visibility visible
+    background-color $white
+    img
+        max-width 120px
+        height auto
+        object-fit cover
+        animation pulse 1.5s linear infinite
+        z-index 1
+@keyframes pulse
+    0
+        scale 1
+    50%
+        scale 1.1
+    100%
+        scale 1
+.main_scrollsnap
+    overflow-x clip
+    &.modal-active
+        overflow hidden !important
+        &::before
+            position fixed
+            content ''
+            top 0
+            left 0
+            right 0
+            bottom 0
+            width 100%
+            height 100%
+            background-color rgba(0,0,0,0.7)
+            z-index 100
+body
+    &.modal-active
+        overflow hidden !important
+        &::before
+            position fixed
+            content ''
+            top 0
+            left 0
+            right 0
+            bottom 0
+            width 100%
+            height 100%
+            background-color rgba(0,0,0,0.7)
+            z-index 100
+.modal-video
+    position fixed
+    border-radius 2.5rem
+    width 100%
+    max-width 740px
+    aspect-ratio 16/9
+    display flex
+    flex-direction column
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    overflow hidden
+    background-color $white
+    scale 0
+    visibility hidden
+    opacity 0
+    transition all 0.3s ease
+    z-index 210
+    &.show
+        scale 1.0
+        visibility visible
+        opacity 1
+    iframe
+        width 100%
+        height 100%
+.modal-service
+    position fixed
+    border-radius 2.5rem
+    width 100%
+    max-width 740px
+    display flex
+    flex-direction column
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    overflow hidden
+    background-color $white
+    scale 0
+    visibility hidden
+    opacity 0
+    transition all 0.3s ease
+    z-index 200
+    max-height 60vh
+    overflow-y auto
+    &::-webkit-scrollbar
+        display none
+    &.show
+        scale 1.0
+        visibility visible
+        opacity 1
+    .close_modal
+        position absolute
+        width 20px
+        height 20px
+        top 40px
+        right 40px
+        z-index 10
+        cursor pointer
+        &::before
+            content ''
+            position absolute
+            width 40px
+            height 40px
+            border-radius 50px
+            top 6px
+            left 50%
+            transform translate(-50%, -50%)
+            transition all 0.3s ease
+        &:hover
+            &::before
+                background-color rgba(255, 255, 255, 0.1)
+        &:active
+            &::before
+                background-color rgba(255, 255, 255, 0.3)
+        .line
+            display block
+            position relative
+            background-color $white
+            border-radius 5px
+            height 3px
+            width 100%
+            &:nth-child(1)
+                top 5px
+                transform rotate(45deg)
+            &:nth-child(2)
+                top 2px
+                transform rotate(-45deg)
+    .row
+        position relative
+        width 100%
+        .img_modal
+            width 100%
+            aspect-ratio 16/6
+            position relative
+            overflow hidden
+            cursor pointer
+            &:hover
+                ~ .icon_play
+                    background-color rgba(255, 255, 255, 0.5)
+                img
+                    scale 1.1
+                &:before
+                    background-color rgba(111, 0, 230, 0.05)
+            &:before
+                content ''
+                position absolute
+                width 100%
+                height 100%
+                background-color rgba(111, 0, 230, 0.2)
+                top 0
+                left 0
+                right 0
+                bottom 0
+                z-index 1
+                transition all 0.8s cubic-bezier(0.89, 0, 0.59, 0.99)
+            img
+                height 100%
+                object-fit cover
+                object-position top
+                transition all 0.6s cubic-bezier(0.89, 0, 0.59, 0.99)
+        .show-video-modal
+            position absolute
+            top 50%
+            left 50%
+            transform translate(-50%, -50%)
+            z-index 1000
+            transition all 0.3s ease
+            background-color rgba(255, 255, 255, 0.3)
+            width 45px
+            height 45px
+            clip-path polygon(100% 50%, 0 0, 0 100%)
+        .subtitle
+            text-align left
+            font-family 'Gilroy Bold'
+            color $black
+            margin-bottom .625rem
+        .service_description
+            margin-bottom 1.25rem
+        &:nth-child(3)
+            display flex
+            flex-direction column
+            align-items flex-start
+            padding 1.875rem 3rem 2.5rem
+@keyframes rotandoCubito
+    0%, 100%
+        transform rotate(-9deg)
+        scale 1
+    50%
+        transform rotate(9deg)
+        scale 1.1
+@keyframes rotandoCubito2
+    0%, 100%
+        transform rotate(-15deg)
+        scale 1.1
+    50%
+        transform rotate(15deg)
+        scale 1
+.section_banner
+    position relative
+    display flex
+    background-color $white
+    width 100vw
+    height calc(100% - var(--slide-logo-height))
+    overflow-x clip
+    .cubito-flotante
+        position absolute
+        &.cub-1
+            width 68px
+            top 10px
+            animation rotandoCubito 7s linear infinite
+        &.cub-2
+            width 70px
+            bottom 40px
+            right -5px
+            animation rotandoCubito2 8s linear infinite
+    .container
+        display flex
+        justify-content stretch
+        max-width 1086px
+        .col
+            display flex
+            flex-direction column
+            justify-content center
+            align-items flex-start
+            &:nth-child(2)
+                align-items center
+            .line
+                overflow hidden
+            h1
+                font-size clamp(2.5rem, 9vw, 3.125rem)
+                margin-bottom 1.25rem
+                line-height 1.1
+            img
+                max-width 456px
+
+.section_clients
+    background-color $primary_color
+    min-height var(--slide-logo-height)
+    display flex
+    align-items center
+    width 100vw
+    overflow-x clip
+    .slider
+        position relative
+        overflow hidden
+        width 100%
+        white-space nowrap
+        .slide_track
+            display inline-block
+            animation scroll 50s linear infinite
+            img
+                display inline-block
+                width auto
+                height 70px
+                margin 0 60px
+.section_banner_and_clients
+    overflow-x clip
+@keyframes scroll
+    0%
+        transform translateX(0)
+    100%
+        transform translateX(-100%)
+@keyframes backgroundColor 
+    0%
+        background-color $white
+    50%
+        background-color $gray_superlight
+    100%
+        background-color $white
+.section_we_are
+    background-color $white
+    display flex
+    overflow-x clip
+    .cubito-flotante
+        position absolute
+        &.cub-1
+            width 78px
+            top 10px
+            animation rotandoCubito 7s linear infinite
+        &.cub-2
+            width 80px
+            bottom 40px
+            right -5px
+            animation rotandoCubito2 8s linear infinite
+    .container
+        display flex
+        justify-content stretch
+        max-width 890px
+        gap 6.25rem
+        .col
+            display flex
+            align-items center
+            &:nth-child(1)
+                width 60%
+            &:nth-child(2)
+                width 40%
+            .description
+                font-size 1.25rem
+                text-align justify
+                font-family 'Gilroy Medium'
+        h2
+            display flex
+            color $primary_color
+            .subtitle_border
+                display flex
+                overflow hidden
+                p
+                    font-size clamp(2.5rem, 9vw, 3.4rem)
+                    text-transform uppercase
+                    color $white
+                    writing-mode vertical-lr
+                    -webkit-text-stroke 2px $primary_color
+                    transform rotate(180deg)
+                    text-align center
+            .text
+                position relative
+                display flex
+                flex-direction column
+                .sub_text
+                    overflow hidden
+                .sub
+                    p
+                        font-size clamp(1.5rem, 9vw, 2.5rem)
+                .sub2
+                    margin-top -10px
+                    p
+                        font-size clamp(2rem, 11vw, 3.125rem)
+                .sub3
+                    margin-top -10px
+                    p
+                        font-size clamp(1.5rem, 9vw, 2.5rem)
+                .sub4
+                    p
+                        font-size clamp(1.25rem, 9vw, 1.625rem)
+.section_services
+    position relative
+    background-color $gray_superlight
+    display flex
+    flex-direction column
+    overflow-x clip
+    .cubito-flotante
+        position absolute
+        &.cub-1
+            width 50px
+            top 10px
+            animation rotandoCubito 7s linear infinite
+        &.cub-2
+            width 48px
+            bottom 40px
+            right -5px
+            animation rotandoCubito2 8s linear infinite
+    .container
+        display flex
+        flex-direction column
+        align-items center
+        justify-content center
+        height 100%
+        .subtitle
+            color $primary_color
+            margin-bottom 3rem
+        .card_services
+            display flex
+            flex-wrap wrap
+            justify-content center
+            width 100%
+            gap 1.5rem
+            margin-bottom 3rem
+            .line_card
+                width 23%
+                overflow hidden
+            .card
+                background-color $white
+                border-radius 1.5rem 1.5rem 0 1.5rem
+                padding 1.875rem 1.375rem
+                display flex
+                flex-direction column
+                justify-content space-between
+                height 100%
+                .info
+                    display flex
+                    flex-direction column
+                    justify-content space-between
+                    margin-bottom 2.375rem
+                    height 100%
+                    .icon_and_text
+                        img
+                            width 48px
+                            height 48px
+                            object-fit contain
+                            margin-bottom 8px
+                        h3
+                            font-size clamp(1.25rem, 6vw, 1.5rem)
+                            color $gray
+                            margin-bottom 1rem
+                .terciary_button
+                    align-self flex-start
+    .service_before
+        display none
+        position sticky
+        pointer-events none
+        bottom 0
+        width 100%
+        height 160px
+        padding 80px
+        margin-top -160px
+        background linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))
+.section_testimonial
+    background-color $white
+    display flex
+    padding 5.625rem 0
+    flex-direction column
+    justify-content center
+    overflow-x clip
+    .cubito-flotante
+        position absolute
+        &.cub-1
+            width 54px
+            top 15px
+            animation rotandoCubito 7s linear infinite
+        &.cub-2
+            width 45px
+            bottom 40px
+            right -5px
+            animation rotandoCubito2 8s linear infinite
+    .container
+        display flex
+        flex-direction column
+        align-items center
+        justify-content center
+        width 100%
+        .subtitle
+            color $primary_color
+            margin-bottom 3.5rem
+        .swiffy-slider
+            --swiffy-slider-item-reveal 0
+        .slider-container
+            margin-bottom 1.875rem
+            .card_testimonial
+                border-radius 1.5rem 1.5rem 0 1.5rem
+                border 1px solid $primary_color
+                padding 2.5rem
+                display flex
+                flex-direction column
+                justify-content space-between
+                .description
+                    margin-bottom 3rem
+                .logo_client
+                    max-width 100px
+                    object-fit contain
+        .slider-indicators
+            position relative
+            right initial
+            bottom initial
+            left initial
+            margin 0
+            display flex
+            justify-content center
+            gap .875rem
+            li
+                width .625rem
+                height .625rem
+                background-color #D9D9D9
+                opacity 1
+                border none
+                &.active
+                    background-color $terciary_color
+.section_contact
+    position relative
+    padding 4rem 0
+    background-color $primary_color
+    display flex
+    justify-content center
+    align-items center
+    overflow-x clip
+    .cubito-flotante
+        position absolute
+        &.cub-1
+            width 54px
+            top 15px
+            left 0
+            animation rotandoCubito 7s linear infinite
+        &.cub-2
+            width 45px
+            bottom 40px
+            right -5px
+            animation rotandoCubito2 8s linear infinite
+    .container
+        max-width 656px
+        &.container_thank_you
+            display none
+            &.active
+                display block
+        &.container_form
+            &.hide
+                display none
+        .subtitle
+            color $white
+            margin-bottom 1.5rem
+        form
+            .contact_form
+                display flex
+                flex-wrap wrap
+                gap 1rem
+                .box_input
+                    width 100%
+                    &.box_input_50
+                        width calc(50% - 8px)
+                    p
+                        span
+                            input[type="text"]          
+                            input[type="email"]          
+                            input[type="number"]    
+                                width 100%
+                                height 44px
+                                border-radius .625rem
+                                font-size 1rem
+                                background-color $white
+                                outline none
+                                padding .875rem 1.375rem
+                                transition all 0.3s ease
+                                color $black
+                                font-family 'Gilroy Medium'
+                                &:focus
+                                    box-shadow 0px 0px 0px 2px $purple
+                                &:placeholder
+                                    color $gray_light
+                            select
+                                width 100%
+                                height 44px
+                                border-radius .625rem
+                                outline none
+                                padding .25rem 1.375rem
+                                font-family 'Gilroy Medium'
+                                font-size 1rem
+                                display none
+                    .custom-select-display
+                        width 100%
+                        height 44px
+                        border-radius .625rem
+                        outline none
+                        padding .25rem 1.375rem
+                        font-family 'Gilroy Medium'
+                        font-size 1rem
+                        background-color $white
+                        display flex
+                        align-items center
+                        cursor pointer
+                        &::before
+                            content ''
+                            position absolute
+                            top 45%
+                            right 20px
+                            width 8px
+                            height 8px
+                            border-width 0 0 1px 1px
+                            border-color #000
+                            border-style solid
+                            transform translateY(-50%) rotate(314deg)
+                        span
+                            overflow hidden
+                            white-space nowrap
+                            text-overflow ellipsis
+                            width 94%
+                    .custom-options
+                        width 100%
+                        background-color $white
+                        border-radius .625rem
+                        position absolute
+                        z-index 10
+                        box-shadow 0px 14px 20px rgba(0,0,0,0.2)
+                        overflow hidden
+                    .custom-option
+                        width 100%
+                        height 44px
+                        outline none
+                        padding .25rem 1.375rem
+                        font-family 'Gilroy Medium'
+                        font-size 1rem
+                        background-color $white
+                        display flex
+                        align-items center
+                        cursor pointer
+                        &:hover
+                            background-color $terciary_color
+                            color $white
+                .box_textarea
+                    p
+                        textarea
+                            width 100%
+                            border-radius .625rem
+                            height 100px
+                            font-size 1rem
+                            outline none
+                            padding .875rem 1.375rem
+                            transition all 0.3s ease
+                            background-color $white
+                            color $black
+                            resize none
+                            font-family 'Gilroy Medium'
+                            &:focus
+                                box-shadow 0px 0px 0px 2px $purple
+                            &:placeholder
+                                color $gray_light
+                .btn_send
+                    width auto
+                    margin 0 auto
+                    display flex
+                    justify-content center
+                    p
+                        display flex
+                        justify-content center
+                    input[type="submit"]
+                        border none
+                        outline none
+                        cursor pointer
+                        padding-left 3.125rem
+                        padding-right 3.125rem
+                    .wpcf7-spinner
+                        position absolute
+                        top 50%
+                        right 0
+                        margin 0
+                        margin-right 10px
+                        transform translateY(-50%)
+        .content
+            .title_thanks 
+                text-transform uppercase
+                font-size clamp(2.5rem, 10vw, 3.75rem)
+                -webkit-text-stroke 2px $white
+                color $primary_color
+            p
+                color $white
+                font-family 'Gilroy Bold'
+                display flex
+                flex-direction column
+                line-height 1.1
+                span
+                    font-size clamp(2.5rem, 10vw, 3.125rem)
+.section_thank_you
+    background-color $primary_color
+    height 100%
+    overflow-x clip
+    .container
+        height 100%
+        display flex
+        align-items center
+.page_services
+    .main_body
+        .section_services
+            background-color $white
+            height auto
+            padding 5rem 0
+            .container
+                margin-bottom 3.25rem
+                .subtitle
+                    text-transform uppercase
+                    margin-bottom .5rem
+                .super_description
+                    font-size 1.5rem
+                .card_services
+                    .card
+                        background-color $gray_superlight
+            .service_before
+                display block
+.page_about
+    .section_banner
+        display flex
+        animation backgroundColor 1s linear infinite
+        overflow-x clip
+        .container
+            display flex
+            justify-content center
+            max-width 1086px
+            h1
+                display flex
+                color $primary_color
+                align-items center
+                .subtitle_border
+                    display flex
+                    overflow hidden
+                    p
+                        font-size clamp(2.875rem, 12vw, 5.625rem)
+                        text-transform uppercase
+                        color $white
+                        writing-mode vertical-lr
+                        -webkit-text-stroke 2px $primary_color
+                        transform rotate(180deg)
+                        text-align center
+                .text
+                    position relative
+                    display flex
+                    flex-direction column
+                    .sub_text
+                        overflow hidden
+                    .sub
+                        p
+                            font-size clamp(2rem, 10vw, 4.0625rem)
+                    .sub2
+                        margin-top -8px
+                        p
+                            font-size clamp(2rem, 10vw, 4.25rem)
+                    .sub3
+                        margin-top -8px
+                        p
+                            font-size clamp(2rem, 10vw, 4.0625rem)
+                    .sub4
+                        margin-top -8px
+                        p
+                            font-size clamp(2rem, 10vw, 4.375rem)
+                    .sub5
+                        margin-top -8px
+                        p
+                            font-size clamp(1.2rem, 6vw, 2.25rem)
+    .section_mision
+        background-color $gray_superlight
+        display flex
+        padding 5.625rem 0
+        overflow-x clip
+        .cubito-flotante
+            position absolute
+            &.cub-1
+                width 54px
+                top 15px
+                animation rotandoCubito 7s linear infinite
+            &.cub-2
+                width 45px
+                bottom 40px
+                right -5px
+                animation rotandoCubito2 8s linear infinite
+        .container
+            max-width 1000px
+            display flex
+            gap 3%
+            .col
+                display flex
+                flex-direction column
+                justify-content center
+                &:nth-child(1)
+                    width 30%
+                &:nth-child(2)
+                    width 70%
+                .subtitle
+                    color $primary_color
+                    font-size clamp(2rem, 16vw, 5rem)
+                    line-height 1.2
+                    text-align left
+                .super_description
+                    font-family 'Gilroy Bold'
+                    font-size clamp(1.5rem, 5vw, 2rem)
+                    margin-bottom 1rem
+                .description
+                    font-size 1.25rem
+    .section_vision
+        background-color $white
+        display flex
+        padding 5.625rem 0
+        overflow-x clip
+        .cubito-flotante
+            position absolute
+            &.cub-1
+                width 54px
+                top 15px
+                animation rotandoCubito 7s linear infinite
+            &.cub-2
+                width 45px
+                bottom 40px
+                right -5px
+                animation rotandoCubito2 8s linear infinite
+        .container
+            max-width 1000px
+            display flex
+            gap 3%
+            .col
+                display flex
+                flex-direction column
+                justify-content center
+                &:nth-child(1)
+                    width 30%
+                &:nth-child(2)
+                    width 70%
+                .subtitle
+                    color $primary_color
+                    font-size clamp(2rem, 16vw, 5rem)
+                    line-height 1.2
+                    text-align left
+                .super_description
+                    font-family 'Gilroy Bold'
+                    font-size clamp(1.5rem, 5vw, 2rem)
+                    margin-bottom 1rem
+                .description
+                    font-size 1.25rem
+    .section_earth
+        background-color $primary_color
+        display flex
+        flex-direction column
+        overflow-x clip
+        .pp-tableCell
+            display flex
+            flex-direction column
+            justify-content flex-end
+        .container
+            margin-bottom 3rem
+            .subtitle
+                color $white
+                margin-bottom .9375rem
+            .description
+                color $white
+                font-size 1.5rem
+                text-align center
+        .map
+            position relative
+            width 100%
+            background url('../img/img_mapamundi_gris.svg')
+            background-position top center
+            background-size cover
+            background-repeat no-repeat
+            display flex
+            justify-content center
+            height 74%
+            .list_countries
+                position absolute
+                width 100%
+                height 100%
+                .country
+                    position absolute
+                    p
+                        position relative
+                        color $primary_color
+                        font-family 'Gilroy Bold'
+                        font-size 1.25rem
+                    .map_indicator
+                        position relative
+                        display flex
+                        flex-direction column
+                        align-items center
+                        max-width 14px
+                        .circle
+                            display block
+                            width 12px
+                            height 12px
+                            background-color $primary_color
+                            border-radius 50%
+                        .indicator
+                            display block
+                            width 2px
+                            height 12px
+                            background-color $primary_color
+                    &.c_canada
+                        top 7%
+                        left 34%
+                    &.c_mexico
+                        top 21%
+                        left 33%
+                    &.c_colombia
+                        top 39%
+                        left 39%
+                    &.c_peru
+                        top 47%
+                        left 37%
+                    &.c_chile
+                        top 60%
+                        left 38.5%
+                        p
+                            left -44px
+                    &.c_argentina
+                        top 55%
+                        left 39.5%
+                        p
+                            right -12px
+                    &.c_brazil
+                        top 45%
+                        left 42%
+                        p
+                            right -15px
+                    &.c_netherlands
+                        top 11%
+                        right 45%
+                        p
+                            left -114px
+                    &.c_germany
+                        top 10%
+                        right 45%
+                    &.c_malaysa
+                        top 35%
+                        right 32%
+                        p
+                            left -76px
+                    &.c_singapore
+                        top 38%
+                        right 30.3%
+                        p
+                            left -100px
+                            top 34px
+                    &.c_indonesia
+                        top 39%
+                        right 29%
+                    &.c_philippines
+                        top 41%
+                        right 25.5%
+                        p
+                            top 20px
+                            right -20px
+
+.page_default
+    .main_body
+        padding 5rem 0 11.25rem
+        .section
+            .container
+                max-width 892px
+                .subtitle
+                    text-transform uppercase
+                    color $primary_color
+                    margin-bottom .625rem
+                .super_description
+                    text-align center
+                .description
+                    .has-text-align-center
+                        text-align center !important
+                    h1
+                    h2
+                    h3
+                    h4
+                    h5
+                    h6
+                        margin-bottom 1rem
+                    h3
+                        font-size 1.25rem    
+                    p
+                        margin-bottom 1rem
+                        line-height 1.4
+                        text-align justify
+                    ol
+                    ul
+                        margin-bottom 1rem
+                        margin-left 1.25rem
+                        li
+                            line-height 1.4
+                            margin-bottom .25rem
+                            ul
+                                margin-top 1rem
+                    a
+                        color $primary_color
+                        text-decoration underline
+                        &:hover
+                            color $terciary_color
+.page_contact
+    .main_body
+        .section_contact
+            padding 5rem 0
+@media screen and (max-width: 1366px) and (max-height: 680px)
+    .section_banner
+        .container
+            .col
+                img
+                    max-width 100%
+                    max-height 80%
+    .section_clients
+        .slider
+            .slide_track
+                img
+                    height 50px
+                    margin 0 50px
+    .section_services
+        height auto
+        .container
+            padding 6rem 1.25rem
+            height auto
+    .section_testimonial
+        padding 0
+        .container
+            padding 6rem 1.25rem
+    .section_contact
+        height auto
+        padding 5.625rem 0
+    .page_about
+        .section_earth
+            .map
+                .list_countries
+                    .country
+                        p
+                            font-size 1rem
+                        .map_indicator
+                            position relative
+                            display flex
+                            flex-direction column
+                            align-items center
+                            max-width 14px
+                            .circle
+                                width 10px
+                                height 10px
+                        &.c_canada
+                            top 7%
+                            left 34%
+                        &.c_mexico
+                            top 21%
+                            left 31%
+                        &.c_colombia
+                            top 39%
+                            left 39%
+                        &.c_peru
+                            top 47%
+                            left 36%
+                        &.c_chile
+                            top 60%
+                            left 38.5%
+                            p
+                                left -44px
+                        &.c_argentina
+                            top 55%
+                            left 39.5%
+                            p
+                                right -12px
+                        &.c_brazil
+                            top 45%
+                            left 42%
+                            p
+                                right -15px
+                        &.c_netherlands
+                            top 11%
+                            right 45%
+                            p
+                                left -90px
+                        &.c_germany
+                            top 10%
+                            right 45%
+                        &.c_malaysa
+                            top 35%
+                            right 32%
+                            p
+                                left -76px
+                        &.c_singapore
+                            top 38%
+                            right 30.3%
+                            p
+                                left -100px
+                                top 34px
+                        &.c_indonesia
+                            top 39%
+                            right 29%
+                        &.c_philippines
+                            top 41%
+                            right 25.5%
+                            p
+                                top 20px
+                                right -20px
+@media screen and (max-width: 1024px)
+    .section_we_are
+        .container
+            gap 1.875rem
+            .col
+                display flex
+                align-items center
+                &:nth-child(1)
+                    width 55%
+                &:nth-child(2)
+                    width 45%
+    .section_services
+        .container
+            padding 5rem 1.25rem
+            height auto
+            .card_services
+                .line_card
+                    max-width 300px
+                    width 100%
+                .card
+                    width 100%
+    .section_testimonial
+        .container
+            &:nth-child(2)
+                padding 0
+            .slider-container
+                padding 0 1.875rem
+                &:before
+                    content ''
+                    background linear-gradient(90deg, #ffffff, rgba(0,0,0,0,5))
+                    z-index 1
+                    position: absolute
+                    left 0
+                    width 60px
+                    height 100%
+                &:after
+                    content ''
+                    background linear-gradient(-90deg, #ffffff, rgba(0,0,0,0,5))
+                    z-index 1
+                    position: absolute
+                    right 0
+                    width 60px
+                    height 100%
+            .swiffy-slider
+                --swiffy-slider-item-count 2
+                --swiffy-slider-item-reveal 1rem
+    .page_about
+        .section_earth
+            .map
+                background-size 150%
+                .list_countries
+                    .country
+                        p
+                            font-size 1rem
+                        .map_indicator
+                            position relative
+                            display flex
+                            flex-direction column
+                            align-items center
+                            max-width 14px
+                            .circle
+                                width 10px
+                                height 10px
+                        &.c_canada
+                            top 7%
+                            left 28%
+                        &.c_mexico
+                            top 21%
+                            left 26%
+                        &.c_colombia
+                            top 39%
+                            left 36%
+                        &.c_peru
+                            top 47%
+                            left 32%
+                        &.c_chile
+                            top 60%
+                            left 33.5%
+                            p
+                                left -44px
+                        &.c_argentina
+                            top 55%
+                            left 35.5%
+                            p
+                                right -12px
+                        &.c_brazil
+                            top 45%
+                            left 39%
+                            p
+                                right -15px
+                        &.c_netherlands
+                            top 11%
+                            right 43%
+                            p
+                                left -90px
+                        &.c_germany
+                            top 10%
+                            right 42%
+                        &.c_malaysa
+                            top 35%
+                            right 25%
+                            p
+                                left -76px
+                        &.c_singapore
+                            top 38%
+                            right 22.3%
+                            p
+                                left -100px
+                                top 34px
+                        &.c_indonesia
+                            top 39%
+                            right 20%
+                        &.c_philippines
+                            top 41%
+                            right 14.5%
+                            p
+                                top 20px
+                                right -20px
+    .modal
+        max-width 90%
+@media screen and (max-width: 768px)
+    .cubito-flotante
+        &.cub-1
+        &.cub-2
+            width 40px !important
+    .section_banner
+        padding 2rem 0
+        .container
+            .col
+                img
+                    max-width 320px
+                    height 100%
+    .section_we_are
+        .container
+            flex-direction column
+            justify-content center
+            .col
+                justify-content center
+                &:nth-child(1)
+                &:nth-child(2)
+                    width 100%
+                .description
+                    max-width 380px
+    .section_services
+        .service_before
+            display block
+    .page_about
+        .section_mision
+        .section_vision
+            .container
+                flex-direction column
+                gap 5%
+                .col
+                    &:nth-child(1)
+                    &:nth-child(2)
+                        width 100%
+        .section_earth
+            height auto
+            .map
+                background-size 150%
+                img
+                    height 64%
+                .list_countries
+                    .country
+                        p
+                            font-size 1rem
+                        .map_indicator
+                            position relative
+                            display flex
+                            flex-direction column
+                            align-items center
+                            max-width 14px
+                            .circle
+                                width 10px
+                                height 10px
+                        &.c_canada
+                            top 7%
+                            left 15%
+                        &.c_mexico
+                            top 21%
+                            left 13%
+                        &.c_colombia
+                            top 39%
+                            left 29%
+                        &.c_peru
+                            top 47%
+                            left 23%
+                        &.c_chile
+                            top 60%
+                            left 25.5%
+                            p
+                                left -44px
+                        &.c_argentina
+                            top 55%
+                            left 28.5%
+                            p
+                                right -12px
+                        &.c_brazil
+                            top 45%
+                            left 34%
+                            p
+                                right -15px
+                        &.c_netherlands
+                            top 11%
+                            right 43%
+                            p
+                                left -90px
+                        &.c_germany
+                            top 10%
+                            right 42%
+                        &.c_malaysa
+                            top 35%
+                            right 25%
+                            p
+                                left -76px
+                        &.c_singapore
+                            top 38%
+                            right 22.3%
+                            p
+                                left -100px
+                                top 34px
+                        &.c_indonesia
+                            top 39%
+                            right 20%
+                        &.c_philippines
+                            top 41%
+                            right 14.5%
+                            p
+                                top 20px
+                                right -20px
+    .modal
+        .row
+            &:nth-child(3)
+                padding 1.875rem 1.875rem 2.5rem
+@media screen and (max-width: 640px)
+    .section_banner
+        .container
+            flex-direction column-reverse
+            justify-content center
+            gap 0
+            .col
+                &:nth-child(1)
+                &:nth-child(2)
+                    width 100%
+                    align-items flex-start
+                    justify-content flex-start
+                h1
+                    margin-bottom 1.5rem
+                img
+                    height 100%
+                    max-width 74%
+                    padding-bottom 1.25rem
+                    max-height 100%
+    .section_clients
+        .slider
+            .slide_track
+                img
+                    height 40px
+                    margin 0 20px
+    .section_we_are
+        .container
+            flex-direction column
+            justify-content center
+            .col
+                justify-content center
+                &:nth-child(1)
+                &:nth-child(2)
+                    width 100%
+                .description
+                    max-width 380px
+    .section_services
+        .container
+            .card_services
+                .card
+                    width 100%
+    .section_testimonial
+        padding 0
+        justify-content flex-start
+        .container
+            &:nth-child(2)
+                padding 3rem 0 6rem
+            .subtitle
+                margin-bottom 1.5rem
+                padding 0 1.25rem
+                font-size 8vw
+            .swiffy-slider
+                --swiffy-slider-item-count 1
+                --swiffy-slider-item-reveal 2rem
+            .slider-container
+                .card_testimonial
+                    padding 2.5rem 1.25rem
+                    .description
+                        margin-bottom 1rem
+    .section_contact
+        padding 0
+        .container
+            display flex
+            flex-direction column
+            align-items center
+            .subtitle
+                font-size 8vw
+            form
+                max-width 80%
+                margin 0 auto
+                .contact_form
+                    gap 1rem
+                    .box_input
+                        &.box_input_100_mobile
+                            width 100%
+    .page_about
+        .section_mision
+        .section_vision
+            padding 0
+            .container
+                padding 5rem 1.25rem
+                flex-direction column
+                gap 1.5rem
+                .col
+                    &:nth-child(1)
+                    &:nth-child(2)
+                        width 100%
+                        justify-content flex-start
+        .section_earth
+            height auto
+            min-height auto
+            .map
+                background-size 170%
+                padding-bottom 20px
+                height 45%
+                .list_countries
+                    .country
+                        p
+                            font-size 1rem
+                        .map_indicator
+                            .circle
+                                width 8px
+                                height 8px
+                            .indicator
+                                height 10px
+                        &.c_canada
+                            top 6%
+                            left 9%
+                        &.c_germany
+                            top 3%
+                            right 32%
+                        &.c_netherlands
+                            top 8%
+                            right 29%
+                            p
+                                left -80px
+                        &.c_peru
+                            top 45%
+                            left 20%
+                        &.c_chile
+                            top 64%
+                            left 23.5%
+                        &.c_argentina
+                            top 58%
+                            left 26.5%
+                        &.c_philippines
+                            top 18%
+                            right -9.5%
+                            p
+                                top 0px
+                                right 48px
+                            .map_indicator
+                                .indicator
+                                    height 50px
+                        &.c_indonesia
+                            top 25%
+                            right -1%
+                            p   
+                                top 3px
+                                left -50px
+                            .map_indicator
+                                .indicator
+                                    height 32px
+                        &.c_singapore
+                            top 37%
+                            right 3.3%
+                            p
+                                top 23px
+                                left -78px
+                        &.c_malaysa
+                            top 31%
+                            right 5%
+                            p
+                                left -62px
+                                top 7px
+    .page_default
+        .main_body
+            padding 4rem 0
+    .modal
+        max-width 94%
+        border-radius 2.125rem
+        .close_modal
+            top 30px
+            right 20px
+        .row
+            .img_modal
+                height 200px

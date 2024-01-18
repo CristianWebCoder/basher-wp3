@@ -1,0 +1,95 @@
+// 1. Buttons
+.primary_button
+    display flex
+    justify-content center
+    align-items center
+    border-radius 2.1875rem
+    background-color $primary_color
+    height 3.125rem
+    padding .25rem 2.375rem .5rem
+    font-size 1rem
+    color $white
+    text-transform uppercase
+    box-shadow 0px 1px 3px 0px rgba(0, 0, 0, 0.20)
+    transition all 0.3s ease
+    font-family 'Gilroy Bold'
+    &:hover
+        color $primary_color
+        background $green
+    &:active
+        filter brightness(0.95)
+    &.font-lg
+        font-size 1.25rem
+.secondary_button
+    display flex
+    justify-content center
+    align-items center
+    border-radius 2.1875rem
+    background-color $green
+    height 3.5rem
+    padding .25rem 2.375rem .5rem
+    font-size 1rem
+    color $primary_color
+    text-transform uppercase
+    box-shadow 0px 1px 3px 0px rgba(0, 0, 0, 0.20)
+    transition all 0.3s ease
+    font-family 'Gilroy Bold'
+    &:hover
+        color $primary_color
+        background $green
+    &:active
+        filter brightness(0.95)
+    &.font-lg
+        font-size 1.25rem
+.terciary_button
+    display flex
+    justify-content center
+    align-items center
+    transition all 0.3s ease
+    font-family 'Gilroy Bold'
+    color $primary_color
+    gap .5rem
+    i
+        position relative
+        background-color $primary_color
+        border-radius 50px
+        width 2rem
+        height 2rem
+        display flex
+        justify-content center
+        align-items center
+        border 1px solid $white
+        transition all 0.3s ease
+    &:hover
+        color $terciary_color
+    &:hover i
+        background-color $terciary_color
+// 2. Text
+.subtitle
+    width 100%
+    color $gray
+    text-align center
+    font-size clamp(1.8rem, 8vw, 2rem) 
+// 3. Container
+.container
+    width 100%
+    max-width 1280px
+    padding 0 1.25rem
+    margin 0 auto
+// 4. Container fluid
+.container_fluid
+    width 100%
+    padding 0 5%
+    margin 0 auto
+// 5. Columns
+.col
+    &.col-50
+        width 50%
+
+@media screen and (max-width: 768px)
+    .container
+        padding 0 3.125rem
+
+@media screen and (max-width: 640px)
+    .container
+        padding 0 1.25rem

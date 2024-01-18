@@ -1,0 +1,18 @@
+
+# BEGIN WordPress
+# Las directivas (líneas) entre «BEGIN WordPress» y «END WordPress» son
+# generadas dinámicamente y solo deberían ser modificadas mediante filtros de WordPress.
+# Cualquier cambio en las directivas que hay entre esos marcadores serán sobrescritas.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /basher_web/wordpress/
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^en/wp-login.php /basher_web/wordpress/wp-login.php [QSA,L]
+RewriteRule ^es/wp-login.php /basher_web/wordpress/wp-login.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /basher_web/wordpress/index.php [L]
+</IfModule>
+
+# END WordPress
